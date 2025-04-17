@@ -1,6 +1,11 @@
 {
   "hero": {
-    "title": "Hello, I'm Edouard",
-    "subtitle": "Fullstack Web Developer"
+    "title": {
+      "hi": "Hi!",
+      "iam": "I'am",
+      "firstname": "Edouard"
+    },
+    "subtitle": "Junior full-stack developer based in Belgium",
+    "alt": "Profile picture of Edouard Willems"
   }
 }

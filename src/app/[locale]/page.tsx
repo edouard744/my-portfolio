@@ -9,11 +9,11 @@ type Props = {
 
 export default async function Home({ params }: Props) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
+  const t = await getDictionary(locale);
 
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
-      <Hero />
+      <Hero t={t} />
 
       <section id="about" className="py-20 px-4 max-w-3xl mx-auto">
         <h2 className="text-3xl font-semibold mb-6 text-center">About me</h2>

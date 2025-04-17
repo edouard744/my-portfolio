@@ -1,6 +1,11 @@
 {
   "hero": {
-    "title": "Bonjour, moi c’est Edouard",
-    "subtitle": "Développeur Web fullstack"
+    "title": {
+      "hi": "Salut !",
+      "iam": "moi c'est",
+      "firstname": "Edouard"
+    },
+    "subtitle": "Développeur full-stack junior basé en Belgique",
+    "alt": "Photo de profil d'Edouard Willems"
   }
 }
