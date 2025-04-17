@@ -1,8 +1,14 @@
 import { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import '@/app/globals.css'
+import "@/app/globals.css";
+import { Poppins } from "next/font/google";
 const locales = ["fr", "en"];
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
+});
 export default async function LocaleLayout({
   children,
   params,
@@ -16,7 +22,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={poppins.variable}>
       <body>{children}</body>
     </html>
   );
