@@ -1,4 +1,6 @@
-export function LinkedinIcon({ size }: { size: number }) {
+import { iconProps } from "./icon-types";
+
+export function LinkedinIcon({ size = 30, ...props }: iconProps) {
   return (
     <svg viewBox="0 0 128 128" width={size} height={size}>
       <path

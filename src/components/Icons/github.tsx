@@ -1,4 +1,6 @@
-export function GithubIcon({ size }: { size: number }) {
+import { iconProps } from "./icon-types";
+
+export function GithubIcon({ size = 30, ...props }: iconProps) {
   return (
     <svg viewBox="0 0 128 128" width={size} height={size}>
       <g fill="#181616">
