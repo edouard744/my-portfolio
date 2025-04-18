@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "name": "Willems Edouard",
+    "linklabel": "Aller à la page d'accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
   "hero": {
     "title": {
       "hi": "Salut !",

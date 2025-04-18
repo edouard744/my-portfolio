@@ -2,6 +2,7 @@
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/types";
 import Hero from "@/components/Home/Hero";
+import { Nav } from "@/components/Nav";
 
 type Props = {
   params: { locale: Locale };
@@ -13,6 +14,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
+      <Nav t={t}/>
       <Hero t={t} />
 
       <section id="about" className="py-20 px-4 max-w-3xl mx-auto">
