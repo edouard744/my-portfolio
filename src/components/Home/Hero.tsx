@@ -4,7 +4,7 @@ import { GithubIcon } from "../Icons/github";
 import { LinkedinIcon } from "../Icons/linkedIn";
 export default function Hero({ t }: { t: any }) {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-center gap-10 py-20 px-6 max-w-7xl mx-auto ">
+    <section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-80 px-6 max-w-7xl mx-auto ">
      <div className="w-40 xs:w-72 justify-center   aspect-square relative">
   <Image
     src={ProfilePic}

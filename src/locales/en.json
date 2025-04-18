@@ -14,5 +14,31 @@
     },
     "subtitle": "Junior full-stack developer based in Belgium",
     "alt": "Profile picture of Edouard Willems"
+  },
+"about":{
+    "title": "About me",
+    "subtitle": {
+      "first": "I'm 22 years old and live in the Liège region. Passionate about creating practical tools and elegant websites, I'm constantly looking for new ideas and opportunities to learn.",
+      "second": "It was during my bachelor's degree in graphic techniques that I discovered the world of web development. Initially, it was the infinite possibilities offered by this field that captivated me, but very quickly, I developed a true passion for coding itself.",
+      "third": "Today, what I seek above all is to discover, experiment, and continually progress."
+    },
+    "skills": {
+  "first": "What I master",
+  "second": "What I know how to use",
+  "third": "My strengths and values",
+  "ability": {
+    "first": "Reliable",
+    "second": "Team player",
+    "third": "Friendly",
+    "fourth": "Motivated",
+    "fifth": "Curious",
+    "sixth": "Versatile"
+  },
+  "info": {
+  "title": "Contact information",
+  "mail": "contact@willems-edouard.be",
+  "phone": "04 98 04 37 30"
+} 
+}
   }
 }

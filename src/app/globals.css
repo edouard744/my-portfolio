@@ -2,6 +2,9 @@
 
 @theme{
   --breakpoint-xs: 300px;
+  --breakpoint-s: 400px;
+  --color-gray-50: #FAFAFA;
+  --color-gray-900: #18181B;
 }
 @theme inline {
   --color-background: var(--background);
