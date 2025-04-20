@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n/types";
 import Hero from "@/components/Home/Hero";
 import { Nav } from "@/components/Nav";
 import About from "@/components/Home/About";
+import Projects from "@/components/Home/Project";
 
 type Props = {
   params: { locale: Locale };
@@ -37,6 +38,8 @@ export default async function Home({ params }: Props) {
       <footer className="py-6 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} Edouard. All right reserved.
       </footer>
+      <About t={t} />
+      <Projects t={t} />
     </main>
   );
 }

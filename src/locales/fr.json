@@ -15,18 +15,18 @@
     "subtitle": "Développeur full-stack junior basé en Belgique",
     "alt": "Photo de profil d'Edouard Willems"
   },
-  "about":{
+  "about": {
     "title": "À propos",
     "subtitle": {
       "first": "J’ai 22 ans et je vis dans la région de Liège. Passionné par la création d’outils pratiques et de sites web élégants, je suis constamment à la recherche de nouvelles idées et d’occasions d’apprendre.",
       "second": "C’est au cours de mon bachelier en techniques graphiques que j’ai découvert l’univers du développement web. Ce sont d’abord les possibilités infinies offertes par ce domaine qui m’ont séduit, mais très vite, je me suis découvert une véritable passion pour le code en lui-même.",
       "third": "Aujourd’hui, ce que je recherche avant tout, c’est découvrir, expérimenter et progresser continuellement."
     },
-    "skills":{
+    "skills": {
       "first": "Ce que je maîtrise",
       "second": "Ce que je sais utiliser",
       "third": "Mes atouts et valeurs",
-      "ability":{
+      "ability": {
         "first": "Sérieux",
         "second": "Esprit dʼéquipe",
         "third": "Amical",
@@ -34,12 +34,20 @@
         "fifth": "Curieux",
         "sixth": "Polyvalent"
       },
-      "info":{
+      "info": {
         "title": "Coordonnées",
         "mail": "contact@willems-edouard.be",
         "phone": "04 98 04 37 30"
       }
     }
+  },
+  "projects": {
+    "title": "Mes projets",
+    "aria": "Ouvrir les détails du projet",
+    "pressionpro":{
+      "title": "PressionPro",
+      "description": "Création d'un site pour un indépendant en nettoyage haute pression",
+      "techno": ["NextJs","TailwindCSS","ReactJs"]
+    }
   }
 }
-
