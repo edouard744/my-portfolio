@@ -1,4 +1,3 @@
-// app/[locale]/page.tsx
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/types";
 import Hero from "@/components/Home/Hero";
@@ -8,25 +7,24 @@ import Projects from "@/components/Home/Project";
 import ContactSection from "@/components/Home/Contact";
 import Footer from "@/components/Home/Footer";
 
-type Props = {
-  params: { locale: Locale };
-};
+type Params = Promise<{ locale: Locale }>;
 
-export default async function Home({ params }: Props) {
-  const { locale } = await params;
+export default async function Home({ params }: { params: Params }) {
+  const p = await params;
+  const locale = p.locale;
+
   const t = await getDictionary(locale);
 
   return (
     <>
-    <main className="bg-white text-gray-900 scroll-smooth">
-      <Nav t={t} />
-      <Hero t={t} />
-      <About t={t} />
-      <Projects t={t} />
-      <ContactSection t={t} />
-
-    </main>
-    <Footer t={t} />
+      <main className="bg-white text-gray-900 scroll-smooth">
+        <Nav t={t} />
+        <Hero t={t} />
+        <About t={t} />
+        <Projects t={t} />
+        <ContactSection t={t} />
+      </main>
+      <Footer t={t} />
     </>
   );
 }

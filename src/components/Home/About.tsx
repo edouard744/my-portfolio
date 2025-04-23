@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MailIcon } from "../Icons/mail";
 import { PhoneIcon } from "../Icons/tel";
 
@@ -22,7 +23,7 @@ export default function About({ t }: { t: any }) {
             <div className="mb-6">
               <ul className="space-y-4">
                 <li className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
                     alt="TypeScript"
                     className="w-5 h-5"
@@ -30,7 +31,7 @@ export default function About({ t }: { t: any }) {
                   <span>JavaScript / TypeScript</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                     alt="React"
                     className="w-5 h-5"
@@ -38,7 +39,7 @@ export default function About({ t }: { t: any }) {
                   <span>React / React Native</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
                     alt="Node.js"
                     className="w-5 h-5"
@@ -46,7 +47,7 @@ export default function About({ t }: { t: any }) {
                   <span>Node.js</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
                     alt="PHP Laravel"
                     className="w-5 h-5"
@@ -54,7 +55,7 @@ export default function About({ t }: { t: any }) {
                   <span>PHP / Laravel</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
                     alt="SQL"
                     className="w-5 h-5"
@@ -71,7 +72,7 @@ export default function About({ t }: { t: any }) {
             </h3>
             <ul className="space-y-4 mb-6">
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
                   alt="Flutter"
                   className="w-5 h-5"
@@ -79,7 +80,7 @@ export default function About({ t }: { t: any }) {
                 <span>Flutter</span>
               </li>
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
                   alt="Figma"
                   className="w-5 h-5"
@@ -87,7 +88,7 @@ export default function About({ t }: { t: any }) {
                 <span>Figma</span>
               </li>
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
                   alt="Photoshop"
                   className="w-5 h-5"
@@ -95,7 +96,7 @@ export default function About({ t }: { t: any }) {
                 <span>Photoshop & Illustrator</span>
               </li>
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
                   alt="Git"
                   className="w-5 h-5"
@@ -103,7 +104,7 @@ export default function About({ t }: { t: any }) {
                 <span>Git / GitHub</span>
               </li>
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg"
                   alt="Docker"
                   className="w-5 h-5"

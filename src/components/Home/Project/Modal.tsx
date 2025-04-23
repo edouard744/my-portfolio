@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { GithubIcon } from "@/components/Icons/github";
 
 type ProjectModalProps = {
@@ -170,7 +170,7 @@ export default function ProjectModal({
               className="flex h-full transition-transform duration-500"
               style={{ width: `${images.length * 100}%` }}
             >
-              {images.map((img, index) => (
+              {images.map((img: StaticImageData, index: number) => (
                 <div
                   key={index}
                   className="relative"
@@ -206,7 +206,7 @@ export default function ProjectModal({
                 </button>
 
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {images.map((_, index) => (
+                  {images.map((_: any, index: number) => (
                     <button
                       key={index}
                       onClick={() => {
@@ -233,7 +233,7 @@ export default function ProjectModal({
               <div className="my-4 flex items-center gap-4">
                 <span className="text-2xl block text-blue-800 font-semibold ">
                   {trad.links}
-                  </span>
+                </span>
                 {content?.modal.github && (
                   <a
                     href={content.modal.github}

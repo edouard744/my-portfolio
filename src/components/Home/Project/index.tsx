@@ -11,12 +11,15 @@ import LandingTwo from "@/app/assets/landing-2.png";
 import LandingThree from "@/app/assets/landing-3.png";
 import LandingFour from "@/app/assets/landing-4.png";
 import ProjectCard from "./Card";
-import { i } from "motion/react-client";
-
+import { StaticImageData } from "next/image";
+type ProjectKey = "pressionpro" | "landing";
 export default function Projects({ t }: { t: any }) {
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const projects: string[] = ["pressionpro", "landing"];
-  const images = {
+  const projects: ProjectKey[] = ["pressionpro", "landing"];
+  const images: Record<
+    ProjectKey,
+    { card: StaticImageData; modal: StaticImageData[] }
+  > = {
     pressionpro: {
       card: PressionProPic,
       modal: [PressionProOne, PressionProTwo, PressionProThree],

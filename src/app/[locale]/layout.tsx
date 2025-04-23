@@ -9,14 +9,17 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
 });
+type Params = Promise<{ locale: string }>;
 export default async function LocaleLayout({
   children,
   params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Params;
 }) {
-  const { locale } = await params;
+  const p = await params;
+  const locale = p.locale;
+
   if (!locales.includes(locale)) {
     notFound();
   }
