@@ -5,6 +5,7 @@ import Hero from "@/components/Home/Hero";
 import { Nav } from "@/components/Nav";
 import About from "@/components/Home/About";
 import Projects from "@/components/Home/Project";
+import ContactSection from "@/components/Home/Contact";
 
 type Props = {
   params: { locale: Locale };
@@ -40,6 +41,7 @@ export default async function Home({ params }: Props) {
       </footer>
       <About t={t} />
       <Projects t={t} />
+      <ContactSection t={t} />
     </main>
   );
 }
