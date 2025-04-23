@@ -4,7 +4,12 @@
     "linklabel": "Go to homepage",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "footer": {
+      "navigation": "Navigation",
+      "social": "Social",
+      "info": "Informations"
+    }
   },
   "hero": {
     "title": {
@@ -42,12 +47,43 @@
     }
   },
   "projects": {
-  "title": "My projects",
-  "aria": "Open project details",
-  "pressionpro": {
-    "title": "PressionPro",
-    "description": "Website created for an independent high-pressure cleaning professional",
-    "techno": ["NextJs", "TailwindCSS", "ReactJs"]
+    "title": "My projects",
+    "aria": "Open project details",
+    "modal": {
+      "presentation": "Presentation of the project",
+      "techno": "Technologies used",
+      "learned": "What I learned",
+      "links": "Links :",
+      "close": "Close"
+    },
+    "list": {
+      "pressionpro": {
+        "title": "PressionPro",
+        "alt": "Project presentation image of PressionPro",
+        "description": "Website created for an independent high-pressure cleani ng professional",
+        "techno": ["NextJs", "TailwindCSS", "ReactJs"],
+        "modal": {
+          "presentation": "This website was one of my very first projects. It was a showcase site for a self-employed professional offering high-pressure cleaning services. \n\n My goal was to highlight his services with a clean and professional design. Unfortunately, the site is no longer online, as the business has since been discontinued.",
+          "techno": "For this project, I used WordPress along with the Elementor page builder, which allowed me to quickly create a modern and responsive interface. I also customized an existing theme to better match the client’s needs while following CMS best practices.",
+          "learned": "This project gave me my first real experience working with a client. I learned a lot—both technically and in terms of communication. I got to handle content management, client feedback, and I made a few mistakes that helped me grow and that I wouldn’t repeat today."
+        }
+      },
+      "landing": {
+        "title": "Old personal website",
+        "alt": "Showcase image of my old personal website",
+        "description": "A portfolio website to introduce myself and my services",
+        "techno": ["Laravel", "PHP"],
+        "modal": {
+          "github": "https://github.com/edouard744/old-landingpage",
+          "presentation": "This project was my old personal website. It was a portfolio site that introduced me and showcased my services. At the time, I was considering starting out as a full-time freelancer, but I eventually decided to postpone that plan. I’ll probably reuse this site if I decide to work as a part-time freelancer in the future.",
+          "techno": "To build this site, I used Laravel—a framework I was already familiar with from previous courses. The visual part was made using Blade components, TailwindCSS for styling, and GSAP for animations.",
+          "learned": ""
+        }
+      }
+    }
+  },
+  "footer":{
+    "title": "Footer",
+    "legal": "Terms of use"
   }
-}
 }

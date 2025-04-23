@@ -8,6 +8,7 @@ export default function ProjectCard({
   description,
   techno,
   aria,
+  onClick,
 }: {
   image: any;
   alt: string;
@@ -15,12 +16,17 @@ export default function ProjectCard({
   description: string;
   techno: string[];
   aria: string;
+  onClick?: () => void; 
 }) {
   return (
     <article
+      
       role="button"
       aria-label={`${aria} ${title}`}
-      className="group cursor-pointer relative w-full lg:w-1/2 max-w-2xl overflow-hidden rounded-lg border-2 border-gray-100"
+      onClick={onClick}
+      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
+      tabIndex={0}
+      className="group cursor-pointer relative w-full max-w-2xl overflow-hidden rounded-lg border-2 border-gray-100 outline-none focus:ring-2 focus:ring-blue-500"
     >
       <Image
         src={image}

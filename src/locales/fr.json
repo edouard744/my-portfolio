@@ -4,7 +4,12 @@
     "linklabel": "Aller à la page d'accueil",
     "about": "À propos",
     "projects": "Projets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "footer": {
+      "navigation": "Navigation",
+      "social": "Réseaux",
+      "info": "Informations"
+    }
   },
   "hero": {
     "title": {
@@ -44,10 +49,42 @@
   "projects": {
     "title": "Mes projets",
     "aria": "Ouvrir les détails du projet",
-    "pressionpro":{
-      "title": "PressionPro",
-      "description": "Création d'un site pour un indépendant en nettoyage haute pression",
-      "techno": ["NextJs","TailwindCSS","ReactJs"]
+    "modal": {
+      "presentation": "Présentation du projet",
+      "techno": "Technologies utilisées",
+      "learned": "Ce que j'en retire",
+      "links": "Liens :",
+      "close": "Fermer"
+    },
+    "list": {
+      "pressionpro": {
+        "title": "PressionPro",
+        "alt": "Image de présentation du projet PressionPro",
+        "description": "Création d'un site pour un indépendant en nettoyage haute pression",
+        "techno": ["NextJs", "TailwindCSS", "ReactJs"],
+        "modal": {
+          "presentation": "Ce site est l’un de mes tout premiers projets réalisés. Il s’agissait d’un site vitrine pour un indépendant spécialisé dans le nettoyage haute pression.\n\n Mon objectif était de mettre en valeur ses services de manière simple et efficace, à travers un design clair et professionnel. Le site n’est malheureusement plus en ligne aujourd’hui, l’indépendant ayant cessé son activité.",
+          "techno": "Pour ce site, j’ai utilisé WordPress avec le constructeur de pages Elementor, ce qui m’a permis de construire rapidement une interface moderne et responsive. J’ai également personnalisé un thème existant afin de répondre aux besoins spécifiques du client tout en respectant les bonnes pratiques du CMS.",
+          "learned": "Ce projet m’a offert une première véritable expérience avec un client. J’y ai beaucoup appris, tant sur le plan technique que relationnel. J’ai pu expérimenter la gestion de contenu, la prise en compte des retours client, et surtout, j’ai commis certaines erreurs qui m’ont permis de progresser et que je ne referais plus aujourd’hui."
+        }
+      },
+      "landing": {
+        "title": "Ancien site personnel",
+        "alt": "Image de présentation de mon ancien site personnel",
+        "description": "Un site vitrine pour me présenter ainsi que mes services",
+        "techno": ["Laravel", "PHP"],
+        "modal": {
+          "github": "https://github.com/edouard744/old-landingpage",
+          "presentation": "Ce projet est mon ancien site personnel. Il s’agissait d’un site vitrine qui me présentait ainsi que mes services. À cette période, j’envisageais de me lancer en tant qu’indépendant principal, mais j’ai finalement décidé de reporter ce projet.\n\n Je compte probablement le réutiliser si je me lance un jour en tant qu’indépendant complémentaire.",
+          "techno": "Pour réaliser ce site, j’ai utilisé Laravel, un framework que je connaissais déjà grâce à mes anciens cours. La partie visuelle a été développée avec des composants Blade, TailwindCSS pour le style, et GSAP pour les animations.",
+          "learned": ""
+        }
+      }
     }
+  },
+  "footer":{
+    "title": "Pied de page",
+    "legal": "Conditions générales d’utilisation" 
+    
   }
 }
