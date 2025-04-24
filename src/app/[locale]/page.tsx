@@ -9,6 +9,7 @@ import Footer from "@/components/Home/Footer";
 
 type Params = Promise<{ locale: Locale }>;
 
+
 export default async function Home({ params }: { params: Params }) {
   const p = await params;
   const locale = p.locale;
@@ -17,8 +18,10 @@ export default async function Home({ params }: { params: Params }) {
 
   return (
     <>
-      <main className="bg-white text-gray-900 scroll-smooth">
+      <header>
         <Nav t={t} />
+      </header>
+      <main className="bg-white text-gray-900 scroll-smooth">
         <Hero t={t} />
         <About t={t} />
         <Projects t={t} />

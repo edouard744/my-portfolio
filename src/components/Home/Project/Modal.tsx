@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import * as motion from "motion/react-client";
 import Image, { StaticImageData } from "next/image";
 import { GithubIcon } from "@/components/Icons/github";
 
@@ -14,9 +14,7 @@ export default function ProjectModal({
   onClose,
   project,
 }: ProjectModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [shouldRender, setShouldRender] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
 
@@ -25,6 +23,34 @@ export default function ProjectModal({
   const images = project[2];
 
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0, transition: { duration: 0.3 } },
+  };
+
+  const modalVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+      transition: { duration: 0.3 },
+    },
+  };
 
   useEffect(() => {
     // Initialiser le tableau de chargement des images
@@ -40,31 +66,15 @@ export default function ProjectModal({
   };
 
   const next = () => {
-    if (!sliderRef.current) return;
-
+    setDirection(1);
     const nextIndex = (current + 1) % images.length;
-
-    gsap.to(sliderRef.current, {
-      x: `-${nextIndex * (100 / images.length)}%`,
-      duration: 0.3,
-      ease: "power2.inOut",
-    });
-
     setCurrent(nextIndex);
     setHasInteracted(true);
   };
 
   const prev = () => {
-    if (!sliderRef.current) return;
-
+    setDirection(-1);
     const prevIndex = (current - 1 + images.length) % images.length;
-
-    gsap.to(sliderRef.current, {
-      x: `-${prevIndex * (100 / images.length)}%`,
-      duration: 0.3,
-      ease: "power2.inOut",
-    });
-
     setCurrent(prevIndex);
     setHasInteracted(true);
   };
@@ -81,68 +91,54 @@ export default function ProjectModal({
 
   useEffect(() => {
     if (isOpen) {
-      setShouldRender(true);
-      // Reset position on open
-      if (sliderRef.current) {
-        gsap.set(sliderRef.current, { x: 0 });
-      }
       setCurrent(0);
       setHasInteracted(false);
+      document.body.style.overflow = "hidden"; // Empêcher le défilement du corps
+    } else {
+      document.body.style.overflow = ""; // Restaurer le défilement du corps
     }
+
+    return () => {
+      document.body.style.overflow = ""; // Assurer que le défilement est restauré lors du démontage
+    };
   }, [isOpen]);
 
-  useEffect(() => {
-    if (shouldRender && modalRef.current) {
-      gsap.fromTo(
-        modalRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
-      );
-    }
-  }, [shouldRender]);
-
-  const handleClose = () => {
-    if (!modalRef.current) return;
-
-    gsap.to(modalRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 0.3,
-      ease: "power3.in",
-      onComplete: () => {
-        setShouldRender(false);
-        setHasInteracted(false);
-        setCurrent(0);
-        onClose();
-      },
-    });
-  };
-
-  if (!shouldRender) return null;
-
-  const handleClickOutside = () => {
-    if (isOpen) handleClose();
-  };
+  if (!isOpen) return null;
 
   return (
-    <div
+    <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-      onClick={handleClickOutside}
+      variants={backdropVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      exit="exit"
+      onClick={onClose}
     >
-      <div
-        ref={modalRef}
+      <motion.div
         onClick={(e) => e.stopPropagation()}
         className="bg-white relative shadow-xl max-w-4xl w-full rounded-xl overflow-hidden"
+        variants={modalVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         <div className="max-h-[90vh] overflow-y-auto px-10 py-8">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-4xl text-blue-950 font-bold">
+            <motion.h2
+              className="text-4xl text-blue-950 font-bold"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+            >
               {content.title}
-            </h2>
-            <button
-              onClick={handleClose}
-              className="text-blue-700 rounded-full cursor-pointer border-blue-700  hover:text-blue-500 hover:scale-105 focus:scale-105   focus:text-blue-500 "
+            </motion.h2>
+            <motion.button
+              onClick={onClose}
+              className="text-blue-700 rounded-full cursor-pointer border-blue-700 hover:text-blue-500 hover:scale-105 focus:scale-105 focus:text-blue-500"
               aria-label={trad.close}
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              transition={{ duration: 0.2 }}
             >
               <svg
                 width="28"
@@ -161,20 +157,24 @@ export default function ProjectModal({
                   <path d="m15 9l-6 6m0-6l6 6" />
                 </g>
               </svg>
-            </button>
+            </motion.button>
           </div>
 
-          <div className="relative mb-6 overflow-hidden w-full rounded-md border border-gray-100 shadow aspect-video">
-            <div
-              ref={sliderRef}
-              className="flex h-full transition-transform duration-500"
-              style={{ width: `${images.length * 100}%` }}
-            >
+          <motion.div
+            className="relative mb-2 overflow-hidden w-full rounded-md border border-gray-100 shadow aspect-video"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <div className="flex h-full w-full relative">
               {images.map((img: StaticImageData, index: number) => (
-                <div
+                <motion.div
                   key={index}
-                  className="relative"
-                  style={{ width: `${100 / images.length}%`, height: "100%" }}
+                  className="absolute inset-0 w-full h-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: index === current ? 1 : 0 }}
+                  transition={{ duration: 0.4 }}
+                  style={{ zIndex: index === current ? 1 : 0 }}
                 >
                   <Image
                     src={img}
@@ -184,72 +184,85 @@ export default function ProjectModal({
                     priority={true}
                     onLoadingComplete={() => handleImageLoad(index)}
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
+          </motion.div>
 
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={prev}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200/90 hover:bg-white text-black rounded-full w-10 h-10 flex items-center text-2xl justify-center shadow"
-                  aria-label="Image précédente"
-                >
-                  ‹
-                </button>
-                <button
-                  onClick={next}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200/90 hover:bg-white text-black rounded-full w-10 h-10 flex items-center text-2xl justify-center shadow"
-                  aria-label="Image suivante"
-                >
-                  ›
-                </button>
+          {images.length > 1 && (
+            <motion.div
+              className="flex items-center justify-center gap-4 mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
+            >
+              <button
+                onClick={prev}
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
+                aria-label={trad.ariaprev}
+              >
+                ‹
+              </button>
 
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {images.map((_: any, index: number) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        if (!sliderRef.current) return;
-                        gsap.to(sliderRef.current, {
-                          x: `-${index * (100 / images.length)}%`,
-                          duration: 0.5,
-                          ease: "power2.inOut",
-                        });
-                        setCurrent(index);
-                        setHasInteracted(true);
-                      }}
-                      className={`w-3 h-3 rounded-full transition-colors ${current === index ? "bg-white" : "bg-white/50"}`}
-                      aria-label={`Aller à l'image ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
+              <div className="flex gap-2 items-center">
+                {images.map((_: any, index: number) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setCurrent(index);
+                      setHasInteracted(true);
+                    }}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      current === index
+                        ? "bg-blue-600 scale-125"
+                        : "bg-gray-300 hover:bg-blue-400"
+                    }`}
+                    aria-label={`${trad.ariaselect} ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={next}
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
+                aria-label={trad.arianext}
+              >
+                ›
+              </button>
+            </motion.div>
+          )}
 
           <div className="mb-8">
             {(content?.modal?.github || content?.modal?.figma) && (
-              <div className="my-4 flex items-center gap-4">
-                <span className="text-2xl block text-blue-800 font-semibold ">
+              <motion.div
+                className="my-4 flex items-center gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <span className="text-2xl block text-blue-800 font-semibold">
                   {trad.links}
                 </span>
                 {content?.modal.github && (
-                  <a
+                  <motion.a
                     href={content.modal.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <GithubIcon size={32} />
-                  </a>
+                  </motion.a>
                 )}
                 {content?.modal.figma && (
-                  <a
+                  <motion.a
                     href={content.modal.figma}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Figma"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Image
                       src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
@@ -258,13 +271,18 @@ export default function ProjectModal({
                       width={32}
                       height={32}
                     />
-                  </a>
+                  </motion.a>
                 )}
-              </div>
+              </motion.div>
             )}
 
             {content?.modal?.presentation && (
-              <div className="my-6">
+              <motion.div
+                className="my-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
                 <span className="text-2xl block text-blue-800 font-semibold mb-2">
                   {trad.presentation}
                 </span>
@@ -274,11 +292,16 @@ export default function ProjectModal({
                 >
                   {content.modal.presentation}
                 </p>
-              </div>
+              </motion.div>
             )}
 
             {content?.modal?.techno && (
-              <div className="my-6">
+              <motion.div
+                className="my-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
                 <span className="text-2xl block text-blue-800 font-semibold mb-2">
                   {trad.techno}
                 </span>
@@ -288,11 +311,16 @@ export default function ProjectModal({
                 >
                   {content.modal.techno}
                 </p>
-              </div>
+              </motion.div>
             )}
 
             {content?.modal?.learned && (
-              <div className="my-6">
+              <motion.div
+                className="my-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
                 <span className="text-2xl block text-blue-800 font-semibold mb-2">
                   {trad.learned}
                 </span>
@@ -302,11 +330,12 @@ export default function ProjectModal({
                 >
                   {content.modal.learned}
                 </p>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
+

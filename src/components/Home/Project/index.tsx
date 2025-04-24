@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ProjectModal from "./Modal";
+import * as motion from "motion/react-client";
 import PressionProPic from "@/app/assets/pression-pro.jpg";
 import PressionProOne from "@/app/assets/pression-pro-1.jpg";
 import PressionProTwo from "@/app/assets/pression-pro-2.jpg";
@@ -33,15 +34,45 @@ export default function Projects({ t }: { t: any }) {
 
   return (
     <>
-      <section className="relative bg-white py-32">
-        <div className="w-full max-w-7xl lg:mx-auto lg:max-w-5xl px-4">
-          <div className="mb-10 flex flex-col items-center gap-6 lg:flex-row lg:justify-between">
-            <h2 className="text-center font-bold text-gray-800 text-6xl">
+      <motion.section 
+        id="projects"
+        className="relative bg-white py-32"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div 
+          className="w-full max-w-7xl lg:mx-auto lg:max-w-5xl px-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="mb-10 flex flex-col items-center gap-6 lg:flex-row lg:justify-between"
+            initial={{ y: -30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.h2 
+              className="text-center font-bold text-gray-800 text-6xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
               {t.projects.title}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1  items-center justify-between gap-6 lg:grid-cols-2">
+            </motion.h2>
+          </motion.div>
+          
+          <motion.div 
+            className="grid grid-cols-1 items-center justify-items-center gap-6 lg:grid-cols-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, staggerChildren: 0.3 }}
+          >
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}
@@ -51,6 +82,7 @@ export default function Projects({ t }: { t: any }) {
                 alt={trad[project].alt}
                 techno={trad[project].techno}
                 aria={trad[project].aria}
+                more={t.projects.more}
                 onClick={() =>
                   setSelectedProject([
                     trad[project],
@@ -60,9 +92,10 @@ export default function Projects({ t }: { t: any }) {
                 }
               />
             ))}
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+      
       {selectedProject && (
         <ProjectModal
           isOpen={!!selectedProject}
