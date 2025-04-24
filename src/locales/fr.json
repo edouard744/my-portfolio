@@ -49,19 +49,25 @@
   "projects": {
     "title": "Mes projets",
     "aria": "Ouvrir les détails du projet",
+    "more": "En savoir plus",
     "modal": {
       "presentation": "Présentation du projet",
       "techno": "Technologies utilisées",
       "learned": "Ce que j'en retire",
       "links": "Liens :",
-      "close": "Fermer"
+      "close": "Fermer",
+      "prev": "Précédent",
+      "ariaprev": "Image précédente",
+      "next": "Suivant",
+      "arianext": "Image suivante",
+      "ariaselect": "Aller à l'image"
     },
     "list": {
       "pressionpro": {
         "title": "PressionPro",
         "alt": "Image de présentation du projet PressionPro",
         "description": "Création d'un site pour un indépendant en nettoyage haute pression",
-        "techno": ["NextJs", "TailwindCSS", "ReactJs"],
+        "techno": ["Wordpress", "PHP"],
         "modal": {
           "presentation": "Ce site est l’un de mes tout premiers projets réalisés. Il s’agissait d’un site vitrine pour un indépendant spécialisé dans le nettoyage haute pression.\n\n Mon objectif était de mettre en valeur ses services de manière simple et efficace, à travers un design clair et professionnel. Le site n’est malheureusement plus en ligne aujourd’hui, l’indépendant ayant cessé son activité.",
           "techno": "Pour ce site, j’ai utilisé WordPress avec le constructeur de pages Elementor, ce qui m’a permis de construire rapidement une interface moderne et responsive. J’ai également personnalisé un thème existant afin de répondre aux besoins spécifiques du client tout en respectant les bonnes pratiques du CMS.",
@@ -72,19 +78,74 @@
         "title": "Ancien site personnel",
         "alt": "Image de présentation de mon ancien site personnel",
         "description": "Un site vitrine pour me présenter ainsi que mes services",
-        "techno": ["Laravel", "PHP"],
+        "techno": ["Laravel", "PHP", "GSAP", "TailwindCSS"],
         "modal": {
           "github": "https://github.com/edouard744/old-landingpage",
           "presentation": "Ce projet est mon ancien site personnel. Il s’agissait d’un site vitrine qui me présentait ainsi que mes services. À cette période, j’envisageais de me lancer en tant qu’indépendant principal, mais j’ai finalement décidé de reporter ce projet.\n\n Je compte probablement le réutiliser si je me lance un jour en tant qu’indépendant complémentaire.",
-          "techno": "Pour réaliser ce site, j’ai utilisé Laravel, un framework que je connaissais déjà grâce à mes anciens cours. La partie visuelle a été développée avec des composants Blade, TailwindCSS pour le style, et GSAP pour les animations.",
-          "learned": ""
+          "techno": "Pour réaliser ce site, j’ai utilisé Laravel, un framework que je connaissais déjà grâce à mes anciens cours. La partie visuelle a été développée avec des composants Blade, TailwindCSS pour le style, et GSAP pour les animations."
         }
       }
     }
   },
-  "footer":{
+  "contact": {
+    "title": "Discutons ensemble de nouvelles opportunités",
+    "subtitle": "Je suis toujours ouvert à discuter de nouvelles idées, de projets ou d’opportunités de job, alors n’hésitez pas à me contacter !",
+    "button": "Me contacter"
+  },
+  "footer": {
     "title": "Pied de page",
-    "legal": "Conditions générales d’utilisation" 
-    
+    "legal": "Mentions légales"
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "identity": {
+      "title": "1. Identité",
+      "owner": "Propriétaire du site :",
+      "address": {
+        "title": "Adresse :",
+        "content": "Liège, Belgique"
+      },
+      "phone": "Téléphone :",
+      "email": "Email :"
+    },
+    "hosting": {
+      "title": "2. Hébergement",
+      "name": "Nom de l'hébergeur :",
+      "address": "Adresse :",
+      "phone": "Téléphone :",
+      "website": "Site web :"
+    },
+    "intellectualProperty": {
+      "title": "3. Propriété intellectuelle",
+      "paragraph1": "Tous les contenus présents sur ce site (textes, images, logos, photographies, vidéos, structure, design, codes source, etc.) sont protégés par les lois belges et internationales relatives à la propriété intellectuelle.",
+      "paragraph2": "Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie de ces éléments, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable du propriétaire du site."
+    },
+    "personalData": {
+      "title": "4. Données personnelles",
+      "introduction": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition concernant vos données personnelles. Pour exercer ces droits, vous pouvez me contacter via l'adresse email mentionnée ci-dessus.",
+      "collection": {
+        "title": "Collecte de données personnelles",
+        "introduction": "Ce site peut collecter les données suivantes :",
+        "connectionData": "Données de connexion (adresse IP, date et heure de connexion)",
+        "formData": "Données fournies volontairement via les formulaires de contact"
+      },
+      "cookies": {
+        "title": "Utilisation des cookies",
+        "description": "Ce site utilise des cookies techniques nécessaires à son fonctionnement. Des cookies d'analyse de trafic peuvent également être utilisés dans le but d'améliorer l'expérience utilisateur et le contenu du site."
+      }
+    },
+    "hyperlinks": {
+      "title": "5. Liens hypertextes",
+      "description": "Ce site peut contenir des liens vers d'autres sites internet. Je ne suis pas responsable du contenu de ces sites ni de leurs pratiques en matière de protection des données personnelles."
+    },
+    "applicableLaw": {
+      "title": "6. Droit applicable et juridiction compétente",
+      "description": "Les présentes mentions légales sont soumises au droit belge. En cas de litige, les tribunaux belges seront seuls compétents."
+    },
+    "contact": {
+      "title": "7. Contact",
+      "description": "Pour toute question concernant ces mentions légales, vous pouvez me contacter à l'adresse email mentionnée ci-dessus."
+    },
+    "lastUpdate": "Dernière mise à jour :"
   }
 }

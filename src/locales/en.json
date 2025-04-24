@@ -49,12 +49,18 @@
   "projects": {
     "title": "My projects",
     "aria": "Open project details",
+    "more": "More",
     "modal": {
       "presentation": "Presentation of the project",
       "techno": "Technologies used",
       "learned": "What I learned",
       "links": "Links :",
-      "close": "Close"
+      "close": "Close",
+      "prev": "Previous",
+      "ariaprev": "Previous image",
+      "next": "Next",
+      "arianext": "Next image",
+      "ariaselect": "Go to image"
     },
     "list": {
       "pressionpro": {
@@ -82,8 +88,65 @@
       }
     }
   },
-  "footer":{
+  "contact": {
+    "title": "Discuss new opportunities together",
+    "subtitle": "I am always open to discussing new ideas, projects, or job opportunities, so don’t hesitate to contact me!",
+    "button": "Contact me"
+  },
+  "footer": {
     "title": "Footer",
-    "legal": "Terms of use"
+    "legal": "Legal mentions"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "identity": {
+      "title": "1. Identity",
+      "owner": "Website Owner:",
+      "address": {
+        "title": "Address :",
+        "content": "Liège, Belgium"
+      },
+      "phone": "Phone:",
+      "email": "Email:"
+    },
+    "hosting": {
+      "title": "2. Hosting",
+      "name": "Hosting Provider:",
+      "address": "Address:",
+      "phone": "Phone:",
+      "website": "Website:"
+    },
+    "intellectualProperty": {
+      "title": "3. Intellectual Property",
+      "paragraph1": "All content on this site (texts, images, logos, photographs, videos, structure, design, source code, etc.) is protected by Belgian and international intellectual property laws.",
+      "paragraph2": "Any reproduction, representation, modification, publication or adaptation of all or part of these elements, regardless of the means or process used, is prohibited without prior written permission from the site owner."
+    },
+    "personalData": {
+      "title": "4. Personal Data",
+      "introduction": "In accordance with the General Data Protection Regulation (GDPR), you have the right to access, rectify, delete and object to your personal data. To exercise these rights, you can contact me via the email address mentioned above.",
+      "collection": {
+        "title": "Collection of Personal Data",
+        "introduction": "This site may collect the following data:",
+        "connectionData": "Connection data (IP address, date and time of connection)",
+        "formData": "Data provided voluntarily through contact forms"
+      },
+      "cookies": {
+        "title": "Use of Cookies",
+        "description": "This site uses technical cookies necessary for its operation. Traffic analysis cookies may also be used to improve user experience and site content."
+      }
+    },
+    "hyperlinks": {
+      "title": "5. Hyperlinks",
+      "description": "This site may contain links to other websites. I am not responsible for the content of these sites or their data protection practices."
+    },
+    "applicableLaw": {
+      "title": "6. Applicable Law and Jurisdiction",
+      "description": "These legal notices are subject to Belgian law. In the event of a dispute, the Belgian courts will have exclusive jurisdiction."
+    },
+    "contact": {
+      "title": "7. Contact",
+      "description": "For any questions regarding these legal notices, you can contact me at the email address mentioned above."
+    },
+    "lastUpdate": "Last update:"
   }
 }
