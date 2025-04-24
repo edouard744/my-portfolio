@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import ProfilePic from "@/app/assets/profile.jpg";
+import ProfilePic from "@/app/assets/profile.jpeg";
 import Image from "next/image";
 import { GithubIcon } from "../Icons/github";
 import { LinkedinIcon } from "../Icons/linkedIn";
@@ -18,6 +18,7 @@ export default function Hero({ t }: { t: any }) {
           src={ProfilePic}
           alt={t.hero.alt}
           fill
+          priority
           className="rounded-full object-cover shadow-lg"
         />
       </motion.div>
