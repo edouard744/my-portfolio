@@ -51,7 +51,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={poppins.variable}>
-      <body>
+      <body className="bg-white">
         {children}
         <SpeedInsights />
         <Analytics />

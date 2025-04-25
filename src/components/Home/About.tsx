@@ -20,9 +20,7 @@ export default function About({ t }: { t: any }) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5,
-            staggerChildren: 0.2,
-},
+      transition: { duration: 0.5, staggerChildren: 0.2 },
     },
   };
 
@@ -40,8 +38,8 @@ export default function About({ t }: { t: any }) {
     <motion.section
       id="about"
       className="text-gray-50 bg-gray-900 flex flex-col items-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <motion.div

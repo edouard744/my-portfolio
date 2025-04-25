@@ -17,10 +17,10 @@ export default async function Home({ params }: { params: Params }) {
 
   return (
     <>
-      <header>
+      <header >
         <Nav t={t} />
       </header>
-      <main role="main" className="bg-white text-gray-900 scroll-smooth">
+      <main role="main" className="text-gray-900 scroll-smooth">
         <Hero t={t} />
         <About t={t} />
         <Projects t={t} />
