@@ -1,5 +1,6 @@
 import * as motion from "motion/react-client";
 import Link from "next/link";
+import { WavingIcon } from "../Icons/waving";
 
 export default function ContactSection({ t }: { t: any }) {
   return (
@@ -21,13 +22,13 @@ export default function ContactSection({ t }: { t: any }) {
             transition={{
               duration: 1.5,
               repeat: Infinity,
-              repeatDelay: 2
+              repeatDelay: 2,
             }}
           >
-            👋
+            <WavingIcon size={50} />
           </motion.span>
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,10 +36,9 @@ export default function ContactSection({ t }: { t: any }) {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mb-8 text-center text-2xl text-blue-900 font-semibold max-w-3xl"
         >
-
           {t.contact.subtitle}
         </motion.p>
-        
+
         <motion.div
           className="text-center"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -47,17 +47,17 @@ export default function ContactSection({ t }: { t: any }) {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <motion.div
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               boxShadow: "0 10px 25px rgba(0, 0, 128, 0.2)",
               backgroundColor: "#1e40af",
-              transition: { duration: 0.3 }
+              transition: { duration: 0.3 },
             }}
             whileTap={{ scale: 0.95 }}
-            whileFocus={{ 
-              scale: 1.05, 
+            whileFocus={{
+              scale: 1.05,
               boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.5)",
-              backgroundColor: "#1e40af"
+              backgroundColor: "#1e40af",
             }}
             className="mx-auto block w-max rounded-full bg-blue-800 overflow-hidden relative"
           >
@@ -70,7 +70,7 @@ export default function ContactSection({ t }: { t: any }) {
               href="mailto:contact@willems-edouard.be"
               className="mx-auto block w-max rounded-full px-10 py-4 text-white relative z-10"
             >
-{t.contact.button}
+              {t.contact.button}
             </Link>
           </motion.div>
         </motion.div>
@@ -78,3 +78,4 @@ export default function ContactSection({ t }: { t: any }) {
     </section>
   );
 }
+

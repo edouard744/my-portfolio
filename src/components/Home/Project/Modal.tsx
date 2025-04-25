@@ -14,7 +14,6 @@ export default function ProjectModal({
   onClose,
   project,
 }: ProjectModalProps) {
-  const sliderRef = useRef<HTMLDivElement>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
 
@@ -23,7 +22,6 @@ export default function ProjectModal({
   const images = project[2];
 
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   const backdropVariants = {
     hidden: { opacity: 0 },
@@ -66,14 +64,12 @@ export default function ProjectModal({
   };
 
   const next = () => {
-    setDirection(1);
     const nextIndex = (current + 1) % images.length;
     setCurrent(nextIndex);
     setHasInteracted(true);
   };
 
   const prev = () => {
-    setDirection(-1);
     const prevIndex = (current - 1 + images.length) % images.length;
     setCurrent(prevIndex);
     setHasInteracted(true);
@@ -338,4 +334,3 @@ export default function ProjectModal({
     </motion.div>
   );
 }
-

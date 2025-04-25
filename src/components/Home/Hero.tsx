@@ -6,7 +6,7 @@ import { LinkedinIcon } from "../Icons/linkedIn";
 
 export default function Hero({ t }: { t: any }) {
   return (
-    <motion.section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 py-80 px-6 max-w-7xl mx-auto">
+    <motion.section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-40 px-6 max-w-7xl mx-auto">
       <motion.div
         className="w-40 xs:w-72 justify-center aspect-square relative"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -62,30 +62,29 @@ export default function Hero({ t }: { t: any }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.9 }}
-        > 
-            <motion.a 
-              href="https://github.com" 
-              target="blank" 
-              aria-label="GitHub"
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2 }}
-            >
-              <GithubIcon fill="#fff" size={40} />
-            </motion.a>
-            <motion.a 
-              href="https://linkedin.com" 
-              target="blank" 
-              aria-label="LinkedIn"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2 }}
-            >
-              <LinkedinIcon size={40} />
-            </motion.a>
+        >
+          <motion.a
+            href="https://github.com"
+            target="blank"
+            aria-label="GitHub"
+            whileHover={{ scale: 1.2, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+          >
+            <GithubIcon fill="#fff" size={40} />
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com"
+            target="blank"
+            aria-label="LinkedIn"
+            whileHover={{ scale: 1.2, rotate: -5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+          >
+            <LinkedinIcon size={40} />
+          </motion.a>
         </motion.div>
       </div>
     </motion.section>
   );
 }
-
