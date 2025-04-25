@@ -1,29 +1,37 @@
-import * as motion from "motion/react-client"
+import * as motion from "motion/react-client";
 import Link from "next/link";
 import LogoIcon from "./Icons/logo";
 
 export function Nav({ t }: { t: any }) {
   return (
     <motion.nav
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: 0.2 }}  
-    className="flex justify-between items-center pt-10 pb-4 px-6 max-w-6xl mx-auto">
+      role="navigation"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="flex justify-between items-center pt-10 pb-4 px-6 max-w-6xl mx-auto"
+    >
       <div className="flex items-center gap-4 hover:scale-105 transition-all duration-150">
         <Link
           href="/"
           aria-label={t.nav.linklabel}
           className="text-2xl font-semibold flex items-center gap-2"
         >
-          <LogoIcon size={60} aria-hidden="true" />
+          <LogoIcon size={60} />
           <span className="text-blue-800 hidden sm:inline">{t.nav.name}</span>
         </Link>
       </div>
       <div className="flex font-medium items-center gap-8">
-        <a href="#about" className="text-gray-800 hover:text-blue-600 focus:text-blue-600 hover:scale-105 focus:scale-105  sm:inline hidden transition-all duration-150">
+        <a
+          href="#about"
+          className="text-gray-800 hover:text-blue-600 focus:text-blue-600 hover:scale-105 focus:scale-105  sm:inline hidden transition-all duration-150"
+        >
           {t.nav.about}
         </a>
-        <a href="#projects" className="text-gray-800 hover:text-blue-600 focus:text-blue-600 hover:scale-105 focus:scale-105 sm:inline hidden transition-all duration-150">
+        <a
+          href="#projects"
+          className="text-gray-800 hover:text-blue-600 focus:text-blue-600 hover:scale-105 focus:scale-105 sm:inline hidden transition-all duration-150"
+        >
           {t.nav.projects}
         </a>
         <a
