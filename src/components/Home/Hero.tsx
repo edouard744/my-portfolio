@@ -6,7 +6,7 @@ import { LinkedinIcon } from "../Icons/linkedIn";
 
 export default function Hero({ t }: { t: any }) {
   return (
-    <motion.section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-40 px-6 max-w-7xl mx-auto">
+    <motion.section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-80 px-6 max-w-7xl mx-auto">
       <motion.div
         className="w-40 xs:w-72 justify-center aspect-square relative"
         initial={{ opacity: 0, scale: 0.8 }}
