@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import { Poppins } from "next/font/google";
 import type { Locale } from "@/lib/i18n/types";
-import Head from "next/head";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 const locales = ["fr", "en"];
 
@@ -48,24 +47,13 @@ export default async function LocaleLayout({
   if (!locales.includes(locale)) {
     notFound();
   }
-  const metadata = {
-    en: {
-      title: "My Website",
-      description: "Welcome to my website",
-    },
-    fr: {
-      title: "Mon Site Web",
-      description: "Bienvenue sur mon site web",
-    },
-  };
 
   return (
     <html lang={locale} className={poppins.variable}>
-      <Head>
-        <title>{metadata[locale].title}</title>
-        <meta name="description" content={metadata[locale].description} />
-      </Head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
