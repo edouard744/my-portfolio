@@ -17,7 +17,7 @@ export default async function Home({ params }: { params: Params }) {
 
   return (
     <>
-      <header >
+      <header className="text-gray-900">
         <Nav t={t} />
       </header>
       <main role="main" className="text-gray-900 scroll-smooth">
