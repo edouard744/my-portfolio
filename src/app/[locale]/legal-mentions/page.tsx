@@ -50,18 +50,14 @@ export default async function MentionsLegales({ params }: { params: Params }) {
               </h2>
               <div className="space-y-2 text-gray-700">
                 <p>
-                  <strong>{t.legal.hosting.name}</strong> Hostinger
+                  <strong>{t.legal.hosting.name}</strong> Vercel
                 </p>
                 <p>
-                  <strong>{t.legal.hosting.address}</strong> Švitrigailos str.
-                  34, Vilnius 03230 Lithuania
+                  <strong>{t.legal.hosting.address}</strong>650 California St
+                  San Francisco, CA 94108
                 </p>
                 <p>
-                  <strong>{t.legal.hosting.phone}</strong> +37064503378
-                </p>
-                <p>
-                  <strong>{t.legal.hosting.website}</strong>{" "}
-                  https://www.hostinger.fr
+                  <strong>{t.legal.hosting.website}</strong> https://vercel.com
                 </p>
               </div>
             </section>
@@ -137,4 +133,3 @@ export default async function MentionsLegales({ params }: { params: Params }) {
     </>
   );
 }
-
