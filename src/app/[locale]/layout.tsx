@@ -2,10 +2,9 @@ import { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import { Poppins } from "next/font/google";
-import { Metadata } from "next";
 import type { Locale } from "@/lib/i18n/types";
-import { getDictionary } from "@/lib/i18n/getDictionary";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const locales = ["fr", "en"];
 
 const poppins = Poppins({
