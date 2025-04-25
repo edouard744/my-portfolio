@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { Poppins } from "next/font/google";
 import type { Locale } from "@/lib/i18n/types";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 const locales = ["fr", "en"];
 
 const poppins = Poppins({
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
       <body>
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
