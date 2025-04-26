@@ -1,6 +1,7 @@
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import LogoIcon from "./Icons/logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Nav({ t }: { t: any }) {
   return (
@@ -40,6 +41,7 @@ export function Nav({ t }: { t: any }) {
         >
           {t.nav.contact}
         </a>
+        <LanguageSwitcher/>
       </div>
     </motion.nav>
   );
