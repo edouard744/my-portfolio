@@ -8,5 +8,5 @@ export function LanguageSwitcher() {
   const otherLocale = locale === "fr" ? "en" : "fr";
   const newPath = pathname.replace(/^\/(fr|en)/, "/" + otherLocale);
 
-  return <Link className="text-blue-700" href={newPath}>{otherLocale.toUpperCase()}</Link>;
+  return <Link className="text-blue-700 focus:scale-105 hover:scale-105 transition-all duration-150" href={newPath}>{otherLocale.toUpperCase()}</Link>;
 }
