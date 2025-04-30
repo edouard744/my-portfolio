@@ -3,55 +3,54 @@ import { GithubIcon } from "../Icons/github";
 import { LinkedinIcon } from "../Icons/linkedIn";
 import * as motion from "motion/react-client";
 
-
 export default function Footer({ t }: { t: any }) {
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
-  
+
   const logoVariants = {
     hidden: { scale: 0.8, opacity: 0 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       opacity: 1,
-      transition: { duration: 0.7, ease: "easeOut" }
+      transition: { duration: 0.7, ease: "easeOut" },
     },
-    hover: { 
+    hover: {
       scale: 1.05,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
-  
+
   const linkVariants = {
-    hover: { 
+    hover: {
       x: 5,
       color: "#93c5fd", // text-blue-300
-      transition: { duration: 0.2 }
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   return (
     <footer className="bg-blue-900 overflow-hidden px-4 pb-24 text-white md:px-8">
-      <h2 className="sr-only">{t.footer.title}</h2>     
+      <h2 className="sr-only">{t.footer.title}</h2>
 
-      <motion.div 
+      <motion.div
         className="mx-auto mb-14 flex max-w-7xl gap-4 border-b-2 px-10 pt-10 pb-4 lg:px-0 items-center"
         variants={itemVariants}
         initial="hidden"
@@ -111,33 +110,33 @@ export default function Footer({ t }: { t: any }) {
             transition={{ duration: 1, delay: 1.5 }}
           />
         </motion.svg>
-        <motion.span 
-          className="text-2xl font-semibold"
+        <motion.span
+          className="text-2xl sm:inline hidden font-semibold"
           variants={itemVariants}
         >
           Willems Edouard
         </motion.span>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="mx-auto  flex max-w-7xl flex-col px-10 md:flex-row md:justify-between lg:px-0"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div 
+        <motion.div
           className="mb-10 flex flex-col justify-center gap-6 md:justify-start"
           variants={itemVariants}
         >
           <span className="text-xl font-bold">{t.nav.footer.navigation}</span>
-          
+
           <motion.div variants={linkVariants} whileHover="hover">
             <Link className="hover:underline" href="#about">
               {t.nav.about}
             </Link>
           </motion.div>
-          
+
           <motion.div variants={linkVariants} whileHover="hover">
             <Link className="hover:underline" href="#projects">
               {t.nav.projects}
@@ -145,15 +144,15 @@ export default function Footer({ t }: { t: any }) {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="flex mb-10 min-w-32 flex-col gap-4 pb-4"
           variants={itemVariants}
         >
           <span className="text-xl font-semibold">{t.nav.footer.social}</span>
           <div className="flex gap-2">
-            <motion.a 
-              href="https://github.com" 
-              target="blank" 
+            <motion.a
+              href="https://github.com"
+              target="blank"
               aria-label="GitHub"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
@@ -161,9 +160,9 @@ export default function Footer({ t }: { t: any }) {
             >
               <GithubIcon fill="#fff" size={40} />
             </motion.a>
-            <motion.a 
-              href="https://linkedin.com" 
-              target="blank" 
+            <motion.a
+              href="https://linkedin.com"
+              target="blank"
               aria-label="LinkedIn"
               whileHover={{ scale: 1.2, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
@@ -174,7 +173,7 @@ export default function Footer({ t }: { t: any }) {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mb-10 flex flex-col justify-center gap-6 md:justify-start"
           variants={itemVariants}
         >
@@ -182,10 +181,10 @@ export default function Footer({ t }: { t: any }) {
           <motion.a
             href="mailto:contact@willems-edouard.be"
             className="hover:underline focus:underline"
-            whileHover={{ 
+            whileHover={{
               x: 5,
               color: "#93c5fd", // text-blue-300
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2 },
             }}
           >
             contact@willems-edouard.be
@@ -193,10 +192,10 @@ export default function Footer({ t }: { t: any }) {
           <motion.a
             href="tel:+32498043730"
             className="hover:underline focus:underline"
-            whileHover={{ 
+            whileHover={{
               x: 5,
               color: "#93c5fd", // text-blue-300
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2 },
             }}
           >
             +32 498 04 37 30
@@ -204,11 +203,11 @@ export default function Footer({ t }: { t: any }) {
         </motion.div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="mx-auto mb-10 flex max-w-7xl flex-col justify-center gap-6 border-t-2 px-10 py-10 md:mb-0 md:flex-row md:items-center md:justify-end lg:justify-between lg:px-0"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount:0.1  }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <span>© Willems Edouard {new Date().getFullYear()}</span>
@@ -221,3 +220,4 @@ export default function Footer({ t }: { t: any }) {
     </footer>
   );
 }
+

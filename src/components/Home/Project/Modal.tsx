@@ -113,16 +113,16 @@ export default function ProjectModal({
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white relative shadow-xl max-w-4xl w-full rounded-xl overflow-hidden"
+        className="bg-white relative shadow-xl mx-2 max-w-4xl w-full rounded-xl overflow-hidden"
         variants={modalVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
-        <div className="max-h-[90vh] overflow-y-auto px-10 py-8">
+        <div className="max-h-[90vh] overflow-y-auto px-4 md:px-10 py-8">
           <div className="flex justify-between items-center mb-6">
             <motion.h2
-              className="text-4xl text-blue-950 font-bold"
+              className="text-3xl sm:text-4xl text-blue-950 font-bold"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
@@ -194,7 +194,7 @@ export default function ProjectModal({
             >
               <button
                 onClick={prev}
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 cursor-pointer hover:scale-105 focus:scale-105 transition-all duration-150 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
                 aria-label={trad.ariaprev}
               >
                 ‹
@@ -208,7 +208,7 @@ export default function ProjectModal({
                       setCurrent(index);
                       setHasInteracted(true);
                     }}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all ${
                       current === index
                         ? "bg-blue-600 scale-125"
                         : "bg-gray-300 hover:bg-blue-400"
@@ -220,7 +220,7 @@ export default function ProjectModal({
 
               <button
                 onClick={next}
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 cursor-pointer hover:scale-105 focus:scale-105 transition-all duration-150 text-white rounded-lg text-xl px-4 flex items-center justify-center shadow transition-colors"
                 aria-label={trad.arianext}
               >
                 ›

@@ -55,7 +55,7 @@ export default function About({ t }: { t: any }) {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-6xl font-semibold mb-8"
+            className="text-4xl s:text-6xl font-semibold mb-8"
             initial={itemVariants.hidden}
             whileInView={itemVariants.visible}
             viewport={{ once: true }}

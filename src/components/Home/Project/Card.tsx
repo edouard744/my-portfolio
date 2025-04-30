@@ -17,7 +17,7 @@ export default function ProjectCard({
   description: string;
   techno: string[];
   aria: string;
-  more:string;
+  more: string;
   onClick?: () => void;
 }) {
   return (
@@ -27,7 +27,7 @@ export default function ProjectCard({
       onClick={onClick}
       onKeyDown={(e) => e.key === "Enter" && onClick?.()}
       tabIndex={0}
-      className="group cursor-pointer relative w-full max-w-2xl overflow-hidden rounded-lg border-2 border-gray-100 outline-none focus:ring-2 focus:ring-blue-500"
+      className="group cursor-pointer relative w-full max-w-2xl overflow-hidden rounded-lg border-2 border-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -78,13 +78,10 @@ export default function ProjectCard({
               ))}
             </ul>
           )}
-          <span
-            className="underline text-lg font-medium"
-          >
-            {more}
-          </span>
+          <span className="underline text-lg font-medium">{more}</span>
         </div>
       </motion.div>
     </motion.article>
   );
 }
+

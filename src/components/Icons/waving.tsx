@@ -3,6 +3,7 @@ import { iconProps } from "./icon-types";
 export function WavingIcon({ size = 24, ...props }: iconProps) {
   return (
     <svg
+      className="hidden sm:inline"
       fill="none"
       height={size}
       viewBox="0 0 80 80"

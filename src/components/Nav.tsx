@@ -10,7 +10,7 @@ export function Nav({ t }: { t: any }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="flex justify-between items-center pt-10 pb-4 px-6 max-w-6xl mx-auto"
+      className="flex justify-between flex-wrap items-center pt-10 pb-4 px-6 max-w-6xl mx-auto"
     >
       <div className="flex items-center gap-4 hover:scale-105 transition-all duration-150">
         <Link
@@ -19,7 +19,7 @@ export function Nav({ t }: { t: any }) {
           className="text-2xl font-semibold flex items-center gap-2"
         >
           <LogoIcon size={60} />
-          <span className="text-blue-800 hidden sm:inline">{t.nav.name}</span>
+          <span className="text-blue-800 hidden md:inline">{t.nav.name}</span>
         </Link>
       </div>
       <div className="flex font-medium items-center gap-8">
@@ -41,7 +41,7 @@ export function Nav({ t }: { t: any }) {
         >
           {t.nav.contact}
         </a>
-        <LanguageSwitcher/>
+        <LanguageSwitcher />
       </div>
     </motion.nav>
   );
