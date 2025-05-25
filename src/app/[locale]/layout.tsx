@@ -33,6 +33,17 @@ export async function generateMetadata({ params }: { params: Params }) {
   return {
     title: metadata[locale].title,
     description: metadata[locale].description,
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/icon.png', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-icon.png', type: 'image/png' },
+      ],
+      shortcut: ['/favicon.ico'],
+    },
+    manifest: '/manifest.json',
   };
 }
 export default async function LocaleLayout({
