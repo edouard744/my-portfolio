@@ -1,16 +1,12 @@
-import * as motion from "motion/react-client";
 import Link from "next/link";
 import LogoIcon from "./Icons/logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Nav({ t }: { t: any }) {
   return (
-    <motion.nav
+    <nav
       role="navigation"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="flex justify-between flex-wrap items-center pt-10 pb-4 px-6 max-w-6xl mx-auto"
+      className="flex justify-between flex-wrap items-center pt-10 pb-4 px-6 max-w-6xl mx-auto direct-animate-slide-down direct-animate-delay-600"
     >
       <div className="flex items-center gap-4 hover:scale-105 transition-all duration-150">
         <Link
@@ -43,6 +39,6 @@ export function Nav({ t }: { t: any }) {
         </a>
         <LanguageSwitcher />
       </div>
-    </motion.nav>
+    </nav>
   );
 }

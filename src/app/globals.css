@@ -71,3 +71,149 @@ body {
   }
 }
 
+.direct-animate-slide-up{
+  transform: translateY(20px);
+  opacity: 0;
+  animation: directSlideUp 0.6s ease-out forwards;
+}
+.direct-animate-slide-up-xl{
+  transform: translateY(60px);
+  opacity: 0;
+  animation: directSlideUpXl 0.6s ease-out forwards;
+}
+.direct-animate-slide-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: directSlideDown 0.2s ease-out forwards;
+}
+
+.direct-animate-slide-right {
+  transform: translateX(20px);
+  opacity: 0;
+  animation: directSlideRight 0.6s ease-out forwards;
+}
+.direct-animate-scale {
+  transform: scale(0.8);
+  opacity: 0;
+  animation: directScaleIn 0.6s ease-out forwards;
+}
+
+.direct-animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.direct-animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.direct-animate-delay-600 {
+  animation-delay: 0.6s;
+}
+
+@keyframes directSlideUpXl {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes directSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes directScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes directSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes directSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* base animations */
+.animate-on-scroll {
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+.pre-animate{
+  opacity: 0;
+}
+.pre-animate.animate-slide-up {
+  transform: translateY(20px);
+}
+.pre-animate.animate-slide-up-lg {
+  transform: translateY(40px);
+}
+.pre-animate.animate-slide-up-xl {
+  transform: translateY(60px);
+}
+
+.pre-animate.animate-slide-down {
+  transform: translateY(-20px);
+}
+
+.pre-animate.animate-slide-left {
+  transform: translateX(-20px);
+}
+
+.pre-animate.animate-fade-right {
+  transform: translateX(20px);
+}
+
+.pre-animate.animate-scale {
+  transform: scale(0.95);
+}
+.pre-animate.animate-in {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* For users who prefer less animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .pre-animate
+  .animate-in
+   {
+    opacity: 1;
+    transition: none;
+    transform: none;
+    animation: none;
+  }
+}
+

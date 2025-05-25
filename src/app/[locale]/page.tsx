@@ -6,6 +6,7 @@ import About from "@/components/Home/About";
 import Projects from "@/components/Home/Project";
 import ContactSection from "@/components/Home/Contact";
 import Footer from "@/components/Home/Footer";
+import ScrollAnimationsProvider from "@/lib/ScrollAnimationsProvider";
 
 type Params = Promise<{ locale: Locale }>;
 
@@ -16,8 +17,8 @@ export default async function Home({ params }: { params: Params }) {
   const t = await getDictionary(locale);
 
   return (
-    <>
-      <header className="text-gray-900">
+    <ScrollAnimationsProvider>
+      <header className="text-gray-900"> 
         <Nav t={t} />
       </header>
       <main role="main" className="text-gray-900 scroll-smooth">
@@ -27,6 +28,6 @@ export default async function Home({ params }: { params: Params }) {
         <ContactSection t={t} />
       </main>
       <Footer t={t} />
-    </>
+    </ScrollAnimationsProvider>
   );
 }

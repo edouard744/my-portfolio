@@ -1,4 +1,4 @@
-import * as motion from "motion/react-client";
+// components/Hero.jsx
 import ProfilePic from "@/app/assets/profile.jpeg";
 import Image from "next/image";
 import { GithubIcon } from "../Icons/github";
@@ -6,14 +6,9 @@ import { LinkedinIcon } from "../Icons/linkedIn";
 
 export default function Hero({ t }: { t: any }) {
   return (
-    <motion.section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-80 px-6 max-w-7xl mx-auto">
-      <motion.div
-        className="w-40 xs:w-72 justify-center aspect-square relative"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
+    <section className="flex flex-col lg:flex-row items-center justify-center gap-20 pt-20 pb-80 px-6 max-w-7xl mx-auto">
+      {/* Image avec animation scale */}
+      <div className="w-40 xs:w-72 justify-center aspect-square relative direct-animate-scale">
         <Image
           src={ProfilePic}
           alt={t.hero.alt}
@@ -21,70 +16,49 @@ export default function Hero({ t }: { t: any }) {
           priority
           className="rounded-full object-cover shadow-lg"
         />
-      </motion.div>
+      </div>
 
       <div className="text-center flex flex-col items-center md:text-left lg:block">
-        <motion.h1
-          className="xs:text-6xl text-4xl text-center lg:text-left font-bold mb-6 leading-[1.5] lg:leading-[1.2]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
+        {/* Titre avec animation slide up */}
+        <h1 className="xs:text-6xl text-4xl text-center lg:text-left font-bold mb-6 leading-[1.5] lg:leading-[1.2] direct-animate-slide-up direct-animate-delay-200">
           <span className="sm:pr-2">{t.hero.title.hi}</span>
           <br className="sm:hidden lg:block" />
           {t.hero.title.iam}
           <br className="lg:hidden" />
-          <motion.span
-            className="lg:ml-4 bg-blue-800 text-white px-4 rounded-2xl"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
+          {/* Le nom peut avoir sa propre animation séparée si vous voulez */}
+          <span className="lg:ml-4 bg-blue-800 text-white px-4 rounded-2xl">
             {t.hero.title.firstname}
-          </motion.span>
-        </motion.h1>
+          </span>
+        </h1>
 
-        <motion.p
-          className="text-2xl font-semibold text-blue-800 mb-4 text-center max-w-sm lg:max-w-screen"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
+        {/* Sous-titre avec animation slide right */}
+        <p className="text-2xl font-semibold text-blue-800 mb-4 text-center max-w-sm lg:max-w-screen direct-animate-slide-right direct-animate-delay-400">
           {t.hero.subtitle}
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="flex justify-center lg:justify-start gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          <motion.a
+        {/* Icônes sociales avec animation slide up */}
+        <div className="flex justify-center lg:justify-start gap-4 direct-animate-slide-up direct-animate-delay-600">
+          <a
             href="https://github.com"
-            target="blank"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.2 }}
+            className="hover:scale-125 focus:scale-125 focus:rotate-5 hover:rotate-5 transition-all duration-300"
           >
             <GithubIcon fill="#fff" size={40} />
-          </motion.a>
-          <motion.a
+          </a>
+          <a
             href="https://linkedin.com"
-            target="blank"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
-            whileHover={{ scale: 1.2, rotate: -5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.2 }}
+            className="hover:scale-125 focus:scale-125 focus:-rotate-5 hover:-rotate-5 transition-all duration-300"
           >
             <LinkedinIcon size={40} />
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
+

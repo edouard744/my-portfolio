@@ -1,7 +1,7 @@
 import Image from "next/image";
-import * as motion from "motion/react-client";
 
 export default function ProjectCard({
+  className,
   image,
   alt,
   title,
@@ -11,6 +11,7 @@ export default function ProjectCard({
   more,
   onClick,
 }: {
+  className: string;
   image: any;
   alt: string;
   title: string;
@@ -21,22 +22,13 @@ export default function ProjectCard({
   onClick?: () => void;
 }) {
   return (
-    <motion.article
+    <article
       role="button"
       aria-label={`${aria} ${title}`}
       onClick={onClick}
-      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
+      onKeyDown={(e: React.KeyboardEvent) => e.key === "Enter" && onClick?.()}
       tabIndex={0}
-      className="group cursor-pointer relative w-full max-w-2xl overflow-hidden rounded-lg border-2 border-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{
-        y: -10,
-        boxShadow:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      }}
+      className={`group cursor-pointer relative w-full max-w-2xl overflow-hidden rounded-lg border-2 border-gray-50 outline-none focus:ring-2 focus:ring-blue-500 animate-on-scroll animate-slide-up  hover:-translate-y-2.5 transition-all duration-400 hover:shadow-xl ${className}`}
     >
       <Image
         src={image}
@@ -53,7 +45,7 @@ export default function ProjectCard({
         group-hover:opacity-100 group-hover:visible
         group-focus:opacity-100 group-focus:visible"
       ></div>
-      <motion.div
+      <div
         className="absolute text-gray-50 bottom-8 left-6 right-6 z-20 max-w-sm text-justify font-medium
         opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 group-focus:opacity-100 group-focus:translate-y-0
         transition-all duration-300 ease-out"
@@ -64,24 +56,19 @@ export default function ProjectCard({
           {techno && (
             <ul className="flex mb-2 text-sm gap-2">
               {techno.map((e, i) => (
-                <motion.li
+                <li
                   key={i}
-                  className="border border-gray-50 py-1.5 px-4 rounded-full"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  className="border border-gray-50 py-1.5 px-4 rounded-full animate-on-scroll animate-slide-left duration-300 hover:scale-105 transition-transform"
+                  style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   {e}
-                </motion.li>
+                </li>
               ))}
             </ul>
           )}
           <span className="underline text-lg font-medium">{more}</span>
         </div>
-      </motion.div>
-    </motion.article>
+      </div>
+    </article>
   );
 }
-

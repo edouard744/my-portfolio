@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import ProjectModal from "./Modal";
-import * as motion from "motion/react-client";
 import PressionProPic from "@/app/assets/pression-pro.jpg";
 import PressionProOne from "@/app/assets/pression-pro-1.jpg";
 import PressionProTwo from "@/app/assets/pression-pro-2.jpg";
@@ -34,47 +33,21 @@ export default function Projects({ t }: { t: any }) {
 
   return (
     <>
-      <motion.section
+      <section
         id="projects"
-        className="relative bg-white py-32"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        className="relative bg-white py-32 direct-animate-slide-up-xl"
       >
-        <motion.div
-          className="w-full max-w-7xl lg:mx-auto lg:max-w-5xl px-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            className="mb-10 flex flex-col items-center gap-6 lg:flex-row lg:justify-between"
-            initial={{ y: -30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.h2
-              className="text-center font-bold text-gray-800 text-4xl s:text-6xl"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
+        <div className="w-full max-w-7xl lg:mx-auto lg:max-w-5xl px-4 animate-on-scroll">
+          <div className="mb-10 flex flex-col items-center gap-6 lg:flex-row lg:justify-between animate-on-scroll animate-slide-up duration-500">
+            <h2 className="text-center font-bold text-gray-800 text-4xl s:text-6xl animate-on-scroll animate-slide-up duration-700">
               {t.projects.title}
-            </motion.h2>
-          </motion.div>
+            </h2>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 items-center justify-items-center gap-6 lg:grid-cols-2"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, staggerChildren: 0.3 }}
-          >
+          <div className="grid grid-cols-1 items-center justify-items-center gap-6 lg:grid-cols-2">
             {projects.map((project, i) => (
               <ProjectCard
+                className={`delay-${(i + 1) * 100}`}
                 key={i}
                 image={images[project].card}
                 title={trad[project].title}
@@ -92,9 +65,9 @@ export default function Projects({ t }: { t: any }) {
                 }
               />
             ))}
-          </motion.div>
-        </motion.div>
-      </motion.section>
+          </div>
+        </div>
+      </section>
 
       {selectedProject && (
         <ProjectModal
