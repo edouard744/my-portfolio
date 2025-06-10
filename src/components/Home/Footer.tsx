@@ -71,7 +71,7 @@ export default function Footer({ t }: { t: any }) {
           <div className="flex gap-2">
             <a
               className=" hover:scale-105 focus:scale-105 focus:rotate-5 hover:rotate-5 hover:duration-300 focus:duration-300"
-              href="https://github.com"
+              href="https://github.com/edouard744"
               target="blank"
               aria-label="GitHub"
             >
@@ -79,7 +79,7 @@ export default function Footer({ t }: { t: any }) {
             </a>
             <a
               className=" hover:scale-105 focus:scale-105 focus:-rotate-5 hover:-rotate-5 hover:duration-300 focus:duration-300"
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/edouard-willems/"
               target="blank"
               aria-label="LinkedIn"
             >

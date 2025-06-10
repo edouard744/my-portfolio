@@ -39,7 +39,7 @@ export default function Hero({ t }: { t: any }) {
         {/* Icônes sociales avec animation slide up */}
         <div className="flex justify-center lg:justify-start gap-4 direct-animate-slide-up direct-animate-delay-600">
           <a
-            href="https://github.com"
+            href="https://github.com/edouard744"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -48,7 +48,7 @@ export default function Hero({ t }: { t: any }) {
             <GithubIcon fill="#fff" size={40} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/edouard-willems/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
